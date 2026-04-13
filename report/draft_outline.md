@@ -1,12 +1,32 @@
-# Final Report Outline
+﻿# Final Report Outline
 
-1. Introduction
-2. Scope and ethics
-3. Target application description
-4. Methodology
-5. Static analysis baseline
-6. LLM review process
-7. Comparison results
-8. False positives and missed findings
-9. Prompt improvements
-10. Conclusion
+## 1. Introduction
+- project goal
+- why I chose this topic
+- scope of the work
+
+## 2. Environment and Setup
+- local test setup
+- Python web app used for review
+- repo organization
+
+## 3. Baseline Review
+- known issue list
+- initial prompt
+- baseline findings
+- before-measurement
+
+## 4. Prompt Refinement
+- changes made to the prompt
+- why I changed it
+- updated results
+
+## 5. Comparison and Discussion
+- what improved
+- what still did not work well
+- limitations
+
+## 6. Conclusion
+- what I learned
+- whether the LLM was useful
+- final thoughts

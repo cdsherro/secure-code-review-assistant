@@ -1,9 +1,9 @@
-# Prompt Log
+﻿# Prompt Log
 
-Use this file to save the prompts used for code review, revisions made after false positives, and notes about output quality.
+## Baseline prompt
 
-## Initial Review Prompt
-- To be added in Checkpoint 2
+Review this small Python web app for security issues. List the findings, explain why each one matters, and suggest a fix.
 
-## Revised Prompt
-- To be added after comparison testing
+## Notes
+
+This was the first prompt I used for the baseline checkpoint. It was intentionally simple because I wanted a before-measurement before I started refining the prompt.

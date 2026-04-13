@@ -1,165 +1,62 @@
-# Secure Code Review Assistant for a Small App
+﻿# Secure Code Review Assistant for a Small App
 
-> Checkpoint 1 repository setup for the April cybersecurity project.
+This project is about testing how useful an LLM is for reviewing code for security issues in a small lab-safe app.
 
-## Project Overview
-This project will build a lab-only **Secure Code Review Assistant** that uses a large language model to review a small application and flag potential security issues. The main goal is to compare AI-generated code review findings against static analysis tools such as **Semgrep**, **Bandit**, and, if needed for JavaScript components, **ESLint security rules**. The project will measure overlap, missed findings, false positives, and prompt improvements over time.
+For this project, I am using a small Python web app with intentional security issues so I have a concrete review target for the project. My plan is to review the same code with an LLM, keep track of what it catches, and compare that against a known issue list. The main thing I want to see is whether the LLM gives useful results on a first pass and whether prompt changes make it better later.
 
-This project follows the approved **Track A - AI for Security** option for a **Secure Code Review Assistant for a Small App**. The assignment requires a public GitHub repo, steady checkpoint progress, a professional PDF report, and a short presentation. It also requires all AI-track work to remain lab-only, use only authorized code and synthetic data if needed, and include validation/evaluation results.
+## Checkpoint 2 progress
 
-## Problem Statement
-AI can produce fast code review feedback, but it can also miss important vulnerabilities or invent unsupported claims. This project tests whether an LLM can be useful as a first-pass security reviewer when its output is checked against static analysis and the source code itself.
+For this checkpoint, I focused on getting a baseline in place.
 
-## Target and Scope
-The review target for this project will be a **small, intentionally vulnerable, lab-safe application**. The default plan is to use a lightweight Python/Flask sample app because it is easy to review with both an LLM and static analysis tools like Bandit and Semgrep. If the sample app includes frontend JavaScript, ESLint security rules may also be used.
+What I added:
+- a small Python web app in `src/sample_app`
+- a known issue list for that code
+- an initial LLM review
+- a before-measurement summary
+- updated notes in `/docs`
+- environment evidence and screenshots
 
-### In Scope
-- One small lab-safe application codebase
-- Manual review of selected files and functions
-- LLM-based code review prompts and structured outputs
-- Static analysis with Semgrep and Bandit
-- Comparison of AI findings to tool findings
-- Documentation of overlap, misses, false positives, and prompt tuning
-- Evidence collection, screenshots, and checkpoint updates
+## Project goal
 
-### Out of Scope
-- Real production applications
-- Private or sensitive codebases
-- Real user data or real credentials
-- Exploitation of systems outside approved lab work
-- Any unauthorized scanning or testing
+The goal is not to show that an LLM can replace normal security tools. What I want to test is whether it can help with first-pass review, explain issues in plain language, and improve after I make the prompt more specific.
 
-## Repository Structure
-```text
-.
-├── README.md
-├── assets/
-├── data/
-├── docs/
-│   └── Project_Charter_Checkpoint1.pdf
-├── evidence/
-├── prompts/
-├── report/
-├── scripts/
-├── screenshots/
-└── src/
-```
+## Baseline for this checkpoint
 
-### Folder Purpose
-- `docs/` - project charter, planning notes, checkpoint documents
-- `src/` - the sample app or target code under review
-- `scripts/` - helper scripts for parsing findings or comparing outputs
-- `prompts/` - prompt log, prompt revisions, and structured AI review templates
-- `evidence/` - raw tool output, notes, screenshots, and validation records
-- `report/` - final report draft, figures, and final PDF
-- `data/` - normalized findings and comparison tables
-- `assets/` - diagrams and supporting visuals
-- `screenshots/` - screenshots used in checkpoints and final report
+My baseline is the first LLM review before I tried to improve the prompt.
 
-## Planned Workflow
-1. Select or build a small intentionally vulnerable sample application.
-2. Save the target code in `src/`.
-3. Run static analysis tools such as Bandit and Semgrep against the codebase.
-4. Save raw tool output in `evidence/`.
-5. Prompt the LLM to review the same code and return:
-   - suspected vulnerabilities
-   - severity estimate
-   - explanation of the risk
-   - remediation suggestions
-6. Normalize both AI and static tool findings into a comparison table.
-7. Measure:
-   - overlap between LLM and tool findings
-   - LLM-only findings that are valid
-   - LLM false positives
-   - findings missed by the LLM
-8. Improve prompts and document whether the results get better.
+For this version, I compared the model’s output against a six-item known issue list for the project test app.
 
-## Methodology Plan
-The project will use a repeatable review process:
+Baseline summary:
+- known issues in the project test app: 6
+- clearly identified by baseline LLM: 4
+- missed: 2
+- weak or unsupported finding: 1
+- baseline coverage: 66.7%
 
-- choose a fixed sample app and document why it was selected
-- establish a baseline static analysis result
-- run the LLM with a structured review prompt
-- manually verify important findings against the actual code
-- record which claims were supported, unsupported, or partially correct
-- repeat after prompt tuning and compare results
+This gives me a starting point for the next checkpoint.
 
-## Planned Tools
-- Git and GitHub
-- Python
-- Semgrep
-- Bandit
-- ESLint security rules (if JavaScript is included)
-- Markdown and PDF reporting
-- ChatGPT or another approved LLM for code review assistance
+## What I did this week
 
-## Validation Plan
-Because the project uses AI, every major LLM claim will be checked against the source code and the static analysis output before it is counted as a valid result. Validation will include:
+This week I mainly worked on getting the project into a form where I can actually measure progress later. At first I was just going to save model findings and talk about them, but that felt too loose. I changed the approach so now I have a known issue list and a simple way to score each version of the review.
 
-- matching the finding to a real code location
-- checking whether the vulnerability explanation is technically correct
-- checking whether severity wording is supported
-- comparing the LLM finding to Semgrep/Bandit results
-- documenting false positives and missed issues
-- documenting how prompt changes affect quality
+I also got the local environment working, confirmed Python and Flask were installed, ran the project locally, and saved screenshots for the checkpoint evidence.
 
-## Milestones
-### Week 2 - Checkpoint 1
-- initialize public repo
-- upload README and project charter PDF
-- define project scope, ROE, and methodology
-- set up folder structure and planning documents
+## Folder layout
 
-### Week 3 - Checkpoint 2
-- choose or create the sample app
-- run first static analysis baseline
-- draft first LLM review prompts
-- save evidence and screenshots
+- `assets/` files that may be used later in the report or presentation
+- `data/` notes or small test data if needed later
+- `docs/` project updates and method notes
+- `evidence/` baseline notes and scoring
+- `src/sample_app/` review target
+- `prompts/` prompt log
+- `report/` report notes
+- `screenshots/` checkpoint screenshots
+- `scripts/` helper notes and command references
 
-### Week 4 - Checkpoint 3
-- compare AI findings to static analysis results
-- verify true positives and false positives
-- refine prompts and record changes
-- begin final report sections
+## Next step
 
-### Final Week - Checkpoint 4 / Final Submission
-- finalize comparison tables and conclusions
-- complete PDF report
-- polish repository evidence
-- prepare presentation slides
+For the next checkpoint, I want to revise the prompt so the findings are more specific and better tied to the code. After that I will compare the updated review back to this baseline and see if the results improve.
 
-## Success Criteria
-The project will be on track if:
-- the repo stays organized and updated at each checkpoint
-- the target codebase is clearly documented and lab-safe
-- the AI review process is repeatable
-- the report includes overlap, misses, false positives, and prompt improvements
-- major claims are supported by source code and tool evidence
-- the `checkpoint-1` tag is created for this submission
+## Repository link
 
-## Ethics and Safety Statement
-This project is limited to authorized educational work only. The code under review will be a lab-safe sample application, not a real production system. No real secrets, real user data, or unauthorized targets will be used. If test credentials or secret-like values are needed, they will be synthetic and clearly labeled. Findings will be reported honestly, including cases where the LLM is wrong or incomplete.
-
-## Checkpoint 1 Git Commands
-```bash
-git init
-git add .
-git commit -m "Checkpoint 1 - Secure Code Review Assistant setup"
-git branch -M main
-git remote add origin <your-public-repo-url>
-git push -u origin main
-git tag checkpoint-1
-git push origin checkpoint-1
-```
-
-## Submission Checklist
-- public GitHub repo link added to Canvas
-- professional repo structure pushed to GitHub
-- `README.md` initialized
-- `Project_Charter_Checkpoint1.pdf` uploaded in the repo
-- `checkpoint-1` tag created
-
-## Repo Link
-Replace this placeholder before you submit:
-
-`https://github.com/<username>/secure-code-review-assistant`
+https://github.com/cdsherro/secure-code-review-assistant

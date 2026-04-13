@@ -1,0 +1,16 @@
+﻿Environment setup for Checkpoint 2
+
+Repository path:
+C:\Users\chris\Desktop\secure_code_review_checkpoint1
+
+Python:
+Python 3.14.2
+
+pip:
+pip 25.3
+
+Framework installed:
+Flask 3.1.3
+
+Local run status:
+The project test app was started successfully and served locally at http://127.0.0.1:5000

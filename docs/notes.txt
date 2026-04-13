@@ -1,1 +1,7 @@
-Checkpoint 1 notes and planning items go here.
+﻿Checkpoint 2 working notes
+
+- Repo structure is fixed at the top level now.
+- Python and pip were verified locally.
+- Flask was installed and the local app was started successfully.
+- Screenshots were captured for terminal view, Python environment, local app page, and repo page.
+- Next checkpoint will focus on improving the prompt and comparing against this baseline.
