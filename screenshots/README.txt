@@ -1,17 +1,16 @@
-﻿Add sanitized screenshots here for Checkpoint 2:
+﻿Add sanitized screenshots here for Checkpoint 3:
 
-- project folder open in terminal
-- Python environment proof
-- small Python web app running locally
-- GitHub repo page showing updated docs and evidence
+- baseline attack test result
+- defended attack test result
+- comparison notes or table
+- GitHub repo page showing updated report draft and evidence
 
 Suggested filenames:
-- 01_project_folder_terminal.png
-- 02_python_environment.png
-- 03_project_code_running.png
-- 04_github_repo_checkpoint2.png
+- 05_attack_test_baseline.png
+- 06_attack_test_defended.png
+- 07_repo_checkpoint3.png
+- 08_comparison_notes.png
 
-Notes:
-- keep screenshots clean and readable
-- do not include passwords, tokens, or personal information
-- crop out anything unrelated to the project
+Keep screenshots clean and readable.
+Do not include passwords, tokens, or personal information.
+Crop out anything unrelated to the project.
